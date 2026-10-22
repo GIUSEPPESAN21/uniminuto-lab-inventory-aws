@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+UNIMINUTO_LAB_DB.xlsx
+# Copia local / cache de las fotos de los objetos (core/photos.py)
+fotos/
+.streamlit/secrets.toml
+*.tmp
+.coverage
+UNIMINUTO_LAB_DB.xlsx.bak

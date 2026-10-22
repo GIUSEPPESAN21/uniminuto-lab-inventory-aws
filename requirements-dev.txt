@@ -1,0 +1,6 @@
+-r requirements.txt
+pytest==9.1.1
+pytest-cov==7.1.0
+ruff==0.17.1
+# Motor PDF de Chrome/Edge: prueba que el PDF de la etiqueta se imprime punto por punto.
+pypdfium2==5.14.0

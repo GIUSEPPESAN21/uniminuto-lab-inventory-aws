@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Una corrida nueva sobre la misma rama cancela la anterior (ahorra minutos).
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: "Lint (errores reales - sintaxis, nombres, imports sin usar)"
+        run: ruff check .
+
+      - name: Syntax check
+        run: python -m py_compile app.py core/*.py views/*.py tests/*.py
+
+      - name: Run tests with coverage
+        run: >
+          python -m pytest -q
+          --cov=core --cov=views --cov=app
+          --cov-report=term-missing:skip-covered
+          --cov-fail-under=60

@@ -1,0 +1,9 @@
+# Lint conservador: solo errores reales (sintaxis, nombres no definidos, imports
+# o variables sin usar). No impone estilo para no tocar codigo que ya funciona.
+# Usa ruff.toml (y no pyproject.toml) para no alterar como Streamlit Cloud
+# detecta las dependencias del proyecto.
+target-version = "py311"
+line-length = 120
+
+[lint]
+select = ["E9", "F"]

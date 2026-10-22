@@ -1,0 +1,18 @@
+version: 2
+updates:
+  # Las dependencias estan fijadas (==): Dependabot propone las actualizaciones
+  # como PR y el CI valida que nada se rompa antes de aceptarlas.
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    ignore:
+      # Streamlit 1.50 exige pillow<12: Pillow 12 deja los requisitos sin
+      # solucion y la app no se puede instalar. Quitar al actualizar Streamlit.
+      - dependency-name: "pillow"
+        update-types: ["version-update:semver-major"]
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"

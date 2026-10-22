@@ -1,0 +1,59 @@
+# Tema institucional UNIMINUTO para los controles nativos de Streamlit
+# (pestañas, campos, opciones, casillas, menús, tablas y gráficas). Los colores
+# son los mismos tokens de style.css: azul Pantone 287 C (#003698) y amarillo
+# Pantone 116 C (#FFCE00).
+#
+# Se definen las variantes clara y oscura por separado ([theme.light] y
+# [theme.dark], disponibles desde Streamlit 1.46): así la app sigue la
+# preferencia claro/oscuro del sistema en lugar de fijar un solo tema.
+
+[client]
+# Sin menú ⋮ ni opciones de desarrollador para nadie (style.css oculta además
+# los controles que añade Streamlit Community Cloud).
+toolbarMode = "minimal"
+
+[theme]
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+# Letra base un poco mas grande que la de fabrica (16 px): como todo el diseño
+# usa rem, textos, titulos, botones y menus crecen en la misma proporcion.
+baseFontSize = 17
+baseRadius = "0.75rem"
+buttonRadius = "0.75rem"
+showWidgetBorder = true
+chartCategoricalColors = ["#003698", "#FFCE00", "#4F7FD1", "#B38F00", "#9DB4E3", "#00205B", "#FFE580"]
+
+[theme.light]
+primaryColor = "#003698"
+backgroundColor = "#F4F6FA"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#0E1A2E"
+borderColor = "#C8D1DE"
+linkColor = "#003698"
+blueColor = "#003698"
+yellowColor = "#D9A900"
+
+[theme.dark]
+primaryColor = "#5B8DEB"
+backgroundColor = "#0A1120"
+secondaryBackgroundColor = "#111A2C"
+textColor = "#E6ECF5"
+borderColor = "#31415F"
+linkColor = "#8FB0F5"
+blueColor = "#5B8DEB"
+yellowColor = "#FFCE00"
+
+# Barra lateral: azul institucional en ambos modos (style.css pinta el fondo
+# con degradado); texto claro y acento amarillo para la página activa.
+[theme.light.sidebar]
+primaryColor = "#FFCE00"
+backgroundColor = "#001A4D"
+secondaryBackgroundColor = "#0B2763"
+textColor = "#EEF3FB"
+borderColor = "#2A4A8A"
+
+[theme.dark.sidebar]
+primaryColor = "#FFCE00"
+backgroundColor = "#061230"
+secondaryBackgroundColor = "#0B2763"
+textColor = "#EEF3FB"
+borderColor = "#2A4A8A"
