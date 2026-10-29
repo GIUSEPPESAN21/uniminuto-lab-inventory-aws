@@ -7,5 +7,5 @@ bcrypt==5.0.0
 twilio==9.12.0
 Pillow==11.3.0
 python-barcode==0.16.1
-boto3==1.43.114
+boto3==1.43.118
 botocore==1.43.114
